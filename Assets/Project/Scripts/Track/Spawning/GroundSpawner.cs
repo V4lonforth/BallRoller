@@ -17,14 +17,21 @@ namespace Scripts.Track.Spawning
             FindObjectOfType<Player>().OnMoved += PassDistance;
         }
 
+        private void Start()
+        {
+            _spawnManager.SpawnTrackObject(groundPrefab, TrackParameters.Instance.forwardMovementDirection * (-groundLength / 2f));
+            _spawnManager.SpawnTrackObject(groundPrefab, TrackParameters.Instance.forwardMovementDirection * (groundLength / 2f));
+            _remainingDistanceToSpawn = groundLength;
+        }
+
         private void PassDistance(float distance)
         {
             _remainingDistanceToSpawn -= distance;
 
             if (_remainingDistanceToSpawn > 0) return;
 
-            _remainingDistanceToSpawn = groundLength;
-            _spawnManager.SpawnTrackObject(groundPrefab, 0f);
+            _spawnManager.SpawnTrackObject(groundPrefab, TrackParameters.Instance.forwardMovementDirection * (groundLength / 2f + _remainingDistanceToSpawn));
+            _remainingDistanceToSpawn += groundLength;
         }
     }
 }

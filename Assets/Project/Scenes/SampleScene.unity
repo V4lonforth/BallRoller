@@ -163,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480659643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.21082, y: -29.279392, z: 41.568066}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -416,8 +416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackObjectPrefab: {fileID: 2628002617149342205, guid: aa2821c90153b0d4d854a9759a7640e5, type: 3}
-  minDistanceToSpawn: 2
-  maxDistanceToSpawn: 3
+  minDistanceToSpawn: 200
+  maxDistanceToSpawn: 300
 --- !u!114 &1504607325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 4910341538311084916, guid: 61f4ca49c93705f4298aa8f8e182acde, type: 3}
-  groundLength: 10
+  groundLength: 100
 --- !u!1 &1574816746
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4497691932262338469, guid: 18aaf028cffed9843b00f1602b6de031, type: 3}
       propertyPath: speed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4497977074795950081, guid: 18aaf028cffed9843b00f1602b6de031, type: 3}
       propertyPath: m_Name

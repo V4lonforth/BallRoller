@@ -22,12 +22,11 @@ namespace Scripts.Track.Spawning
             SpawnOffset = GetSpawnOffset();
         }
 
-        public GameObject SpawnTrackObject(GameObject prefab, float linePosition)
+        public GameObject SpawnTrackObject(GameObject prefab, Vector3 offset)
         {
             var trackObject = Instantiate(prefab, trackTransform);
-            trackObject.transform.position +=
-                SpawnOffset + TrackParameters.Instance.horizontalMovementDirection * linePosition;
-            
+            trackObject.transform.position += SpawnOffset + offset;
+
             OnTrackObjectSpawned?.Invoke(trackObject);
             return trackObject;
         }
@@ -37,14 +36,14 @@ namespace Scripts.Track.Spawning
             OnTrackObjectDestroyed?.Invoke(trackObject);
             Destroy(trackObject);
         }
-        
+
         private Vector3 GetSpawnOffset()
         {
             var camera = Camera.main;
 
             if (camera == null)
                 return Vector3.zero;
-            
+
             var cameraDirection = camera.transform.forward;
             var cameraTopDirection = Quaternion.Euler(-camera.fieldOfView / 2f, 0f, 0f) * cameraDirection;
 
@@ -52,13 +51,14 @@ namespace Scripts.Track.Spawning
             var basePositionDirection = basePositionOffset.normalized;
 
             var cameraAngle = Vector3.Angle(basePositionDirection, cameraTopDirection);
-            var basePositionAngle = Vector3.Angle(-basePositionDirection, TrackParameters.Instance.forwardMovementDirection);
+            var basePositionAngle =
+                Vector3.Angle(-basePositionDirection, TrackParameters.Instance.forwardMovementDirection);
             var spawnOffsetAngle = 180 - cameraAngle - basePositionAngle;
 
             var spawnOffset = (spawnMargin + basePositionOffset.magnitude *
                 (Mathf.Sin(basePositionAngle * Mathf.Deg2Rad) /
                  Mathf.Sin(spawnOffsetAngle * Mathf.Deg2Rad))) * TrackParameters.Instance.forwardMovementDirection;
-            
+
             return spawnOffset;
         }
     }

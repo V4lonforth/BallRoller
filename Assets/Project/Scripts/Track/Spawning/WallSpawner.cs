@@ -9,15 +9,15 @@ namespace Scripts.Track.Spawning
 
         [SerializeField] private float minDistanceToSpawn;
         [SerializeField] private float maxDistanceToSpawn;
-        
+
         private TrackObjectSpawnManager _spawnManager;
         private float _remainingDistanceToSpawn;
-        
+
         private void Awake()
         {
             _spawnManager = FindObjectOfType<TrackObjectSpawnManager>();
             _remainingDistanceToSpawn = GetDistanceToSpawn();
-            
+
             FindObjectOfType<Player>().OnMoved += PassDistance;
         }
 
@@ -25,17 +25,18 @@ namespace Scripts.Track.Spawning
         {
             return Random.Range(minDistanceToSpawn, maxDistanceToSpawn);
         }
-        
+
         private void PassDistance(float distance)
         {
             _remainingDistanceToSpawn -= distance;
 
             if (_remainingDistanceToSpawn > 0f) return;
-            
+
             _remainingDistanceToSpawn = GetDistanceToSpawn();
-            
+
             var width = TrackParameters.Instance.trackWidth;
-            _spawnManager.SpawnTrackObject(trackObjectPrefab, Random.Range(-width / 2f, width / 2f));
+            _spawnManager.SpawnTrackObject(trackObjectPrefab,
+                TrackParameters.Instance.horizontalMovementDirection * Random.Range(-width / 2f, width / 2f));
         }
     }
 }
