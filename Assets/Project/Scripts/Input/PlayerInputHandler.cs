@@ -36,7 +36,7 @@ namespace Scripts.Input
 
         private void MovePlayer(Vector2 delta)
         {
-            _player.HorizontalMovement = delta.x / Screen.width * horizontalDistance;
+            _player.HorizontalMovement += delta.x / Screen.width * horizontalDistance;
         }
 
         private float GetHorizontalDistance()

@@ -45,7 +45,7 @@ namespace Scripts.Track.Spawning
             if (camera == null)
                 return Vector3.zero;
             
-            var cameraDirection = camera.transform.rotation * Vector3.forward;
+            var cameraDirection = camera.transform.forward;
             var cameraTopDirection = Quaternion.Euler(-camera.fieldOfView / 2f, 0f, 0f) * cameraDirection;
 
             var basePositionOffset = trackBasePosition - camera.transform.position;

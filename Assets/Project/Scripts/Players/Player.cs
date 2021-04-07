@@ -11,7 +11,14 @@ namespace Scripts.Players
 
         [SerializeField] private float speed;
 
-        protected void Update()
+        protected Rigidbody _rigidbody;
+        
+        protected void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        protected void FixedUpdate()
         {
             var forwardVelocity = TrackParameters.Instance.forwardMovementDirection * (speed * Time.deltaTime);
             var horizontalVelocity = TrackParameters.Instance.horizontalMovementDirection * HorizontalMovement;
@@ -20,9 +27,11 @@ namespace Scripts.Players
                 TrackParameters.Instance.trackWidth / 2f);
             
             Move(forwardVelocity + horizontalPosition - transform.position);
-            transform.position = horizontalPosition;
+            _rigidbody.MovePosition(horizontalPosition);
             
             OnMoved?.Invoke(speed * Time.deltaTime);
+
+            HorizontalMovement = 0f;
         }
 
         protected abstract void Move(Vector3 velocity);

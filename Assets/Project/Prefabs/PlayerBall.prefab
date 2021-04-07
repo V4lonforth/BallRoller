@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 4502062959988893291}
   - component: {fileID: 4473079917048762917}
   - component: {fileID: 4485400232904262805}
+  - component: {fileID: 4449846305913809477}
   - component: {fileID: 4497691932262338466}
   - component: {fileID: 4497691932262338469}
+  - component: {fileID: 3706817875578560429}
   m_Layer: 0
   m_Name: PlayerBall
   m_TagString: Untagged
@@ -84,6 +86,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &4449846305913809477
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497977074795950081}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!135 &4497691932262338466
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -92,7 +110,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4497977074795950081}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.49500003
@@ -109,5 +127,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff1d8b1a1724a01ba0c5eac06b5e3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  radius: 0.5
+  speed: 2
+  radius: 0.495
+--- !u!114 &3706817875578560429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497977074795950081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7baf2822412493f84da7617adb31f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
