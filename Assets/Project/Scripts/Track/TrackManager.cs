@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Scripts.Players;
 using Scripts.Track.Spawning;
 using UnityEngine;
@@ -11,21 +10,25 @@ namespace Scripts.Track
         private readonly List<ITrackObject> _trackObjects = new List<ITrackObject>();
         private Player _player;
 
+        private TrackObjectSpawnManager _spawnManager;
+        
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
             _player.OnMoved += MoveTrack;
 
-            var spawnManager = FindObjectOfType<TrackObjectSpawnManager>();
-            spawnManager.OnTrackObjectSpawned += AddTrackObject;
-            spawnManager.OnTrackObjectDestroyed += RemoveTrackObject;
+            _spawnManager = FindObjectOfType<TrackObjectSpawnManager>();
+            _spawnManager.OnTrackObjectSpawned += AddTrackObject;
+            _spawnManager.OnTrackObjectDestroyed += RemoveTrackObject;
         }
 
         private void MoveTrack(float distance)
         {
-            foreach (var trackObject in _trackObjects)
+            _trackObjects.ForEach(obj => obj.Move(-distance));
+
+            foreach (var trackObject in _trackObjects.FindAll(obj => obj.CheckFinish()))
             {
-                trackObject.Move(-distance);
+                _spawnManager.DestroyTrackObject(trackObject.GameObject);
             }
         }
 

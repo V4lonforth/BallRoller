@@ -207,7 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardMovementDirection: {x: 0, y: 0, z: 1}
   horizontalMovementDirection: {x: 1, y: 0, z: 0}
+  trackBasePosition: {x: 0, y: -0.5, z: 0}
   trackWidth: 8
+  cameraBorderMargin: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,8 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackObjectPrefab: {fileID: 2628002617149342205, guid: aa2821c90153b0d4d854a9759a7640e5, type: 3}
-  minDistanceToSpawn: 200
-  maxDistanceToSpawn: 300
+  minDistanceToSpawn: 3
+  maxDistanceToSpawn: 5
 --- !u!114 &1504607325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,8 +433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackTransform: {fileID: 1574816747}
-  trackBasePosition: {x: 0, y: -0.5, z: 0}
-  spawnMargin: 1
 --- !u!4 &1504607326
 Transform:
   m_ObjectHideFlags: 0
