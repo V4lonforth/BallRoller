@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 480659646}
   - component: {fileID: 480659647}
   - component: {fileID: 480659648}
+  - component: {fileID: 480659650}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -500,6 +501,23 @@ MonoBehaviour:
   trackBasePosition: {x: 0, y: -0.5, z: 0}
   trackWidth: 8
   cameraBorderMargin: 2
+--- !u!114 &480659650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480659643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11021b35c0e0455da95571d8ce587e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolDataList:
+  - prefab: {fileID: 2628002617149342205, guid: aa2821c90153b0d4d854a9759a7640e5, type: 3}
+    minPoolSize: 15
+  - prefab: {fileID: 4910341538311084916, guid: 61f4ca49c93705f4298aa8f8e182acde, type: 3}
+    minPoolSize: 4
 --- !u!1 &525212428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 4910341538311084916, guid: 61f4ca49c93705f4298aa8f8e182acde, type: 3}
   groundLength: 100
+  spawnOffset: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1574816746
 GameObject:
   m_ObjectHideFlags: 0

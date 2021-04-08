@@ -10,9 +10,19 @@ namespace Scripts.Track.Spawning
         public Action<GameObject> OnTrackObjectSpawned { get; set; }
         public Action<GameObject> OnTrackObjectDestroyed { get; set; }
 
+        private ObjectPoolManager _objectPoolManager;
+
+        private void Awake()
+        {
+            _objectPoolManager = FindObjectOfType<ObjectPoolManager>();
+        }
+
         public GameObject SpawnTrackObject(GameObject prefab, Vector3 offset)
         {
-            var trackObject = Instantiate(prefab, trackTransform);
+            var trackObject = _objectPoolManager.CreateObject(prefab);
+
+            trackObject.transform.SetParent(trackTransform);
+            trackObject.transform.localPosition = Vector3.zero;
             trackObject.transform.position += TrackParameters.Instance.SpawnOffset + offset;
 
             OnTrackObjectSpawned?.Invoke(trackObject);
@@ -22,7 +32,7 @@ namespace Scripts.Track.Spawning
         public void DestroyTrackObject(GameObject trackObject)
         {
             OnTrackObjectDestroyed?.Invoke(trackObject);
-            Destroy(trackObject);
+            _objectPoolManager.DestroyObject(trackObject);
         }
 
     }
