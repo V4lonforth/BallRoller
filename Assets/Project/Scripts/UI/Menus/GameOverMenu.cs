@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scripts.UI.GameOverMenu
+namespace Scripts.UI.Menus
 {
     public class GameOverMenu : MonoBehaviour
     {

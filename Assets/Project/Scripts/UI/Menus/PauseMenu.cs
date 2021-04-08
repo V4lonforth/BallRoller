@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Scripts.UI.PauseMenu
+namespace Scripts.UI.Menus
 {
     public class PauseMenu : MonoBehaviour
     {
