@@ -1,14 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Scripts.Players
 {
+    [RequireComponent(typeof(Player))]
     public class PlayerCollisionController : MonoBehaviour
     {
+        private Player _player;
+
+        private void Awake()
+        {
+            _player = GetComponent<Player>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _player.Destroy();
         }
     }
 }

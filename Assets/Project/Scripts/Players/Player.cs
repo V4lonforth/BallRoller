@@ -7,6 +7,8 @@ namespace Scripts.Players
     public abstract class Player : MonoBehaviour
     {
         public Action<float> OnMoved { get; set; }
+        public Action OnDestroyed { get; set; }
+        
         public float HorizontalMovement { get; set; }
 
         [SerializeField] private float speed;
@@ -16,6 +18,12 @@ namespace Scripts.Players
         protected void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+            OnDestroyed?.Invoke();
         }
 
         protected void FixedUpdate()
