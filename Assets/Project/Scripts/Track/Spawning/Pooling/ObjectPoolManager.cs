@@ -2,8 +2,11 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Scripts.Track.Spawning
+namespace Scripts.Track.Spawning.Pooling
 {
+    /// <summary>
+    /// Class that manages pooling objects
+    /// </summary>
     public class ObjectPoolManager : MonoBehaviour
     {
         [SerializeField] private Transform poolTransformParent;
@@ -27,15 +30,15 @@ namespace Scripts.Track.Spawning
 
         private GameObject GetFromPool(ObjectPoolData poolData)
         {
-            var obj = poolData.instantiatedObjects.Last();
-            poolData.instantiatedObjects.RemoveAt(poolData.instantiatedObjects.Count - 1);
+            var obj = poolData.InstantiatedObjects.Last();
+            poolData.InstantiatedObjects.RemoveAt(poolData.InstantiatedObjects.Count - 1);
             obj.SetActive(true);
             return obj;
         }
 
         private void AddToPool(ObjectPoolData poolData, GameObject obj)
         {
-            poolData.instantiatedObjects.Add(obj);
+            poolData.InstantiatedObjects.Add(obj);
             obj.transform.SetParent(poolTransformParent);
             obj.SetActive(false);
         }
@@ -45,7 +48,7 @@ namespace Scripts.Track.Spawning
             var poolData = FindPool(prefab);
             if (poolData == null) return Instantiate(prefab);
             
-            if (poolData.instantiatedObjects.Count == 0)
+            if (poolData.InstantiatedObjects.Count == 0)
                 AddObjectToPool(poolData);
             return GetFromPool(poolData);
         }

@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace Scripts.Track.Spawning
 {
+    /// <summary>
+    /// Class that manages spawning ground
+    /// </summary>
     public class GroundSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject groundPrefab;
         [SerializeField] private float groundLength;
         [SerializeField] private Vector3 spawnOffset;
-
 
         private TrackObjectSpawnManager _spawnManager;
         private float _remainingDistanceToSpawn;

@@ -2,6 +2,9 @@
 
 namespace Scripts.UI.Menus
 {
+    /// <summary>
+    /// Class that controls in-game pause 
+    /// </summary>
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField] private GameObject pauseButton;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4497691932262338466}
   - component: {fileID: 4497691932262338469}
   - component: {fileID: 3706817875578560429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,3 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7baf2822412493f84da7617adb31f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0

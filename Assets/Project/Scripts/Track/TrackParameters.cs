@@ -1,9 +1,11 @@
-﻿using System;
-using Scripts.Utils;
+﻿using Scripts.Utils;
 using UnityEngine;
 
 namespace Scripts.Track
 {
+    /// <summary>
+    /// Singleton class that contains track parameters
+    /// </summary>
     public class TrackParameters : Singleton<TrackParameters>
     {
         public Vector3 forwardMovementDirection = Vector3.forward;

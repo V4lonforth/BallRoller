@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 namespace Scripts.Input
 {
+    /// <summary>
+    /// Class that manages every input handler
+    /// </summary>
     public class InputManager : Singleton<InputManager>
     {
         private EventSystem _eventSystem;

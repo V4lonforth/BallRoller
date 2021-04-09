@@ -408,7 +408,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 480659645}
-  - component: {fileID: 480659649}
   - component: {fileID: 480659644}
   - component: {fileID: 480659646}
   - component: {fileID: 480659647}
@@ -445,7 +444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &480659646
 MonoBehaviour:
@@ -484,23 +483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 336280571}
---- !u!114 &480659649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480659643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8afe10dd3f60437e9af0184bbddc3232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardMovementDirection: {x: 0, y: 0, z: 1}
-  horizontalMovementDirection: {x: 1, y: 0, z: 0}
-  trackBasePosition: {x: 0, y: -0.5, z: 0}
-  trackWidth: 8
-  cameraBorderMargin: 2
 --- !u!114 &480659650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11021b35c0e0455da95571d8ce587e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolTransformParent: {fileID: 1355479384}
   poolDataList:
   - prefab: {fileID: 2628002617149342205, guid: aa2821c90153b0d4d854a9759a7640e5, type: 3}
     minPoolSize: 15
@@ -582,7 +565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -772,7 +755,7 @@ RectTransform:
   - {fileID: 336280572}
   - {fileID: 1831221812}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -935,7 +918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
-  m_LocalPosition: {x: 0, y: 10, z: 2}
+  m_LocalPosition: {x: 0, y: 10, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1101,6 +1084,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293411954}
   m_CullTransparentMesh: 1
+--- !u!1 &1355479383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1355479384}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1355479384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355479383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.819564, y: 0.006808923, z: -0.8517658}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1365399444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1306,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1504607327
 MonoBehaviour:
@@ -1319,6 +1332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574816747}
+  - component: {fileID: 1574816748}
   m_Layer: 0
   m_Name: Track
   m_TagString: Untagged
@@ -1338,8 +1352,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574816748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574816746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8afe10dd3f60437e9af0184bbddc3232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardMovementDirection: {x: 0, y: 0, z: 1}
+  horizontalMovementDirection: {x: 1, y: 0, z: 0}
+  trackBasePosition: {x: 0, y: -0.5, z: 0}
+  trackWidth: 8
+  cameraBorderMargin: 2
 --- !u!1 &1581991976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1775,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3706817875578560429, guid: 18aaf028cffed9843b00f1602b6de031, type: 3}
+      propertyPath: targetLayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 4497691932262338469, guid: 18aaf028cffed9843b00f1602b6de031, type: 3}
       propertyPath: speed
       value: 6
@@ -1754,7 +1789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4502062959988893291, guid: 18aaf028cffed9843b00f1602b6de031, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4502062959988893291, guid: 18aaf028cffed9843b00f1602b6de031, type: 3}
       propertyPath: m_LocalPosition.x

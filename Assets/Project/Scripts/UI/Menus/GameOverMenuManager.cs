@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Scripts.UI.Menus
 {
+    /// <summary>
+    /// Class that shows game over menu after player's death
+    /// </summary>
     public class GameOverMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject menu;

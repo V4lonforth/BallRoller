@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace Scripts.Track.Spawning
 {
-    public class WallSpawner : MonoBehaviour
+    /// <summary>
+    /// Class that manages spawning obstacles randomly on track
+    /// </summary>
+    public class RandomObstacleSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject trackObjectPrefab;
 

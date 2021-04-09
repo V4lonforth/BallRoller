@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using Scripts.Players;
 using Scripts.Track.Spawning;
+using Scripts.Track.TrackObjects;
 using UnityEngine;
 
 namespace Scripts.Track
 {
+    /// <summary>
+    /// Class that controls every object on track
+    /// </summary>
     public class TrackManager : MonoBehaviour
     {
         private readonly List<ITrackObject> _trackObjects = new List<ITrackObject>();

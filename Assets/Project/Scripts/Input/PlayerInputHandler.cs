@@ -3,19 +3,22 @@ using UnityEngine;
 
 namespace Scripts.Input
 {
+    /// <summary>
+    /// Input handler that manages player controls
+    /// </summary>
     public class PlayerInputHandler : DefaultInputHandler
     {
         private Vector2 _lastInputPosition;
         private Player _player;
 
-        private float horizontalDistance;
+        private float _horizontalDistance;
         
         protected new void Awake()
         {
             base.Awake();
             _player = FindObjectOfType<Player>();
 
-            horizontalDistance = GetHorizontalDistance();
+            _horizontalDistance = GetHorizontalDistance();
         }
         
         protected override void HandlePress(Vector2 inputPosition)
@@ -36,7 +39,7 @@ namespace Scripts.Input
 
         private void MovePlayer(Vector2 delta)
         {
-            _player.HorizontalMovement += delta.x / Screen.width * horizontalDistance;
+            _player.HorizontalMovement += delta.x / Screen.width * _horizontalDistance;
         }
 
         private float GetHorizontalDistance()

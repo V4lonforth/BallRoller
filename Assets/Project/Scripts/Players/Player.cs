@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Scripts.Players
 {
+    /// <summary>
+    /// Base class for player
+    /// </summary>
     public abstract class Player : MonoBehaviour
     {
         public Action<float> OnMoved { get; set; }
@@ -13,11 +16,11 @@ namespace Scripts.Players
 
         [SerializeField] private float speed;
 
-        protected Rigidbody _rigidbody;
+        protected Rigidbody Rigidbody;
         
         protected void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody>();
+            Rigidbody = GetComponent<Rigidbody>();
         }
 
         public void Destroy()
@@ -35,7 +38,7 @@ namespace Scripts.Players
                 TrackParameters.Instance.trackWidth / 2f);
             
             Move(forwardVelocity + horizontalPosition - transform.position);
-            _rigidbody.MovePosition(horizontalPosition);
+            Rigidbody.MovePosition(horizontalPosition);
             
             OnMoved?.Invoke(speed * Time.deltaTime);
 

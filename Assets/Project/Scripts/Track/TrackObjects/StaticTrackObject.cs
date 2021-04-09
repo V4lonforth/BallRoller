@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Scripts.Track
+namespace Scripts.Track.TrackObjects
 {
+    /// <summary>
+    /// Default static object on track
+    /// </summary>
     public class StaticTrackObject : MonoBehaviour, ITrackObject
     {
         public GameObject GameObject => gameObject;

@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace Scripts.UI.Menus
 {
+    /// <summary>
+    /// Class that controls main menu
+    /// </summary>
     public class MainMenu : MonoBehaviour
     {
         public void StartGame()

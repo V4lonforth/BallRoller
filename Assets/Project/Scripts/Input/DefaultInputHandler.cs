@@ -1,8 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.Input
 {
+    /// <summary>
+    /// Basic input handling
+    /// </summary>
     public abstract class DefaultInputHandler : MonoBehaviour, IInputHandler
     {
         private int _inputId;

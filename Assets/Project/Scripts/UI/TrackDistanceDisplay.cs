@@ -2,8 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.Track
+namespace Scripts.UI
 {
+    /// <summary>
+    /// Class that displays current passed distance
+    /// </summary>
     public class TrackDistanceDisplay : MonoBehaviour
     {
         [SerializeField] private Text text;

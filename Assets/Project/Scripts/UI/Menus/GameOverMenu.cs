@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace Scripts.UI.Menus
 {
+    /// <summary>
+    /// Class controls game over menu
+    /// </summary>
     public class GameOverMenu : MonoBehaviour
     {
         public void RestartScene()
